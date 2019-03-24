@@ -21,5 +21,27 @@
   "bugs": {
     "url": "https://github.com/hrr36-sdc-t2/scootify/issues"
   },
-  "homepage": "https://github.com/hrr36-sdc-t2/scootify#readme"
+  "homepage": "https://github.com/hrr36-sdc-t2/scootify#readme",
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/runtime": "^7.4.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
+    "express": "^4.16.4",
+    "mariadb": "^2.0.3",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "styled-components": "^4.2.0"
+  }
 }
