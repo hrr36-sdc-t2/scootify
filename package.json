@@ -1,0 +1,22 @@
+{
+  "name": "scootify",
+  "version": "0.1.0",
+  "description": "audio streaming web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr36-sdc-t2/scootify.git"
+  },
+  "keywords": [
+    "scootify"
+  ],
+  "author": "the node less traveled",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrr36-sdc-t2/scootify/issues"
+  },
+  "homepage": "https://github.com/hrr36-sdc-t2/scootify#readme"
+}
