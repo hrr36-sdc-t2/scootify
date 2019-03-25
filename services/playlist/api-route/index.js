@@ -1,5 +1,6 @@
-const mdb = require('../db/mdb.js');
-const router = require('express').Router();
+const 
+  mdb = require('../../database/index.js')
+  , router = require('express').Router();
 
 router.get('/playlist/:id', (req, res) => {
   mdb
@@ -18,7 +19,10 @@ router.get('/playlist/:id', (req, res) => {
 
 router.get('/playlist/:id/:track_index', (req, res) => {
   mdb
-    .query("SELECT JSON_EXTRACT(songs, '$[?]') FROM current_playlist WHERE _id = ?", [req.params.track_index, req.params.id])
+    .query(
+      "SELECT JSON_EXTRACT(songs, '$[?]') FROM current_playlist WHERE _id = ?"
+      , [req.params.track_index, req.params.id]
+    )
     .then((results) => {
       if (!results) {
         throw 'query test fail';
@@ -33,7 +37,10 @@ router.get('/playlist/:id/:track_index', (req, res) => {
 
 router.delete('/playlist/:id/:track_index', (req, res) => {
   mdb
-    .query("UPDATE current_playlist SET songs = JSON_REMOVE(songs, '$[?]') WHERE _id = ?", [req.params.track_index, req.params.id])
+    .query(
+      "UPDATE current_playlist SET songs = JSON_REMOVE(songs, '$[?]') WHERE _id = ?"
+      , [req.params.track_index, req.params.id]
+    )
     .then((results) => {
       if (!results) {
         throw 'failed to remove song';
@@ -93,7 +100,7 @@ router.get('/random', (req, res) => {
         owner: results[0].owner,
         name: results[0].name,
         image_url: results[0].image_url,
-        songs: JSON.stringify([jpar[Math.floor(Math.random()*jpar.length)]])
+        songs: JSON.stringify([jpar[Math.floor(Math.random() * jpar.length)]])
       }
       res.status(200).send(data);
     })

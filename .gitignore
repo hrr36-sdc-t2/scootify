@@ -60,4 +60,7 @@ typings/
 # next.js build output
 .next
 
+.cache/
+public/
+nodemon.json
 x/

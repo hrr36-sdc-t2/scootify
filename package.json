@@ -4,6 +4,7 @@
   "description": "audio streaming web app",
   "main": "server.js",
   "scripts": {
+    "db:seed": "node services/database/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "parcel build ./services/index.html --out-dir public",
     "dev": "parcel ./services/index.html --open",
@@ -30,11 +31,13 @@
     "compression": "^1.7.4",
     "express": "^4.16.4",
     "mariadb": "^2.0.3",
+    "mysql": "^2.16.0",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -42,6 +45,7 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "parcel-bundler": "^1.12.3",
     "styled-components": "^4.2.0"
   }
 }

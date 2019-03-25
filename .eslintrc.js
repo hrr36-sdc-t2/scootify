@@ -198,7 +198,7 @@ module.exports = {
     'object-curly-spacing': [2, 'always'],
     'one-var-declaration-per-line': [2, 'always'],
     'quote-props': [2, 'as-needed'],
-    'quotes': [2, 'single'],
+    // 'quotes': [2, 'single'],
     // 'semi': [2, 'never'],
     'space-before-blocks': 2,
     'space-before-function-paren': [2, 'never'],
