@@ -49,7 +49,7 @@ class Player extends React.Component {
 
   //if track is requested by a separate component in scootify 
   playSpecificTrack(trackId) {
-    fetch('http://localhost:3001/track/' + trackId, {
+    fetch('http://localhost:3000/playlist/track/' + trackId, {
       method: 'GET'
     })
       .then(res => res.json())
@@ -73,7 +73,7 @@ class Player extends React.Component {
       })
       .catch(
         (error) => {
-          console.log(error, 'ERROR FETCHING TRACK ' + trackID);
+          console.log(error, 'ERROR FETCHING TRACK ' + trackId);
         }
       );
   }
@@ -184,7 +184,7 @@ class Player extends React.Component {
   }
 
   toggleLoop() {
-    this.setState({ loop: !this.state.loop }, function () {
+    this.setState({ loop: !this.state.loop }, function() {
       this.player.loop = this.state.loop;
     });
   }
@@ -194,7 +194,7 @@ class Player extends React.Component {
   }
 
   toggleVolume() {
-    this.setState({ volumeup: !this.state.volumeup }, function () {
+    this.setState({ volumeup: !this.state.volumeup }, function() {
       if (!this.state.volumeup) {
         this.player.volume = 0;
         this.setState({ 'volumebar': 0 });

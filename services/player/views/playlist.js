@@ -1,8 +1,8 @@
 let playlist = [];
 
 const createPlaylist = function (callback) {
-  // fetch('http://localhost:3001/playlist')
-  fetch('http://54.218.79.7:3001/playlist')
+  fetch('http://localhost:3000/playlist')
+  // fetch('http://54.218.79.7:3001/playlist')
     .then(res => res.json())
     .then(
       (result) => {

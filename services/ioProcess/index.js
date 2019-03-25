@@ -5,7 +5,7 @@ module.exports = function(socket) {
 
   socket.on('addToPlaylist', (payload) => {
     axios
-      .get('http://localhost:3002/api/random')
+      .get('http://localhost:3000/api/random')
       .then((results) => {
         if (!results) {
           throw 'failed to get random playlist data';
@@ -31,7 +31,7 @@ module.exports = function(socket) {
 
   socket.on('getPlaylistData', (payload, cb) => {
     axios
-      .get(`http://localhost:3002/api/playlist/${payload}`)
+      .get(`http://localhost:3000/api/playlist/${payload}`)
       .then((results) => {
         if (!results) {
           throw 'failed to get playlist data';
@@ -45,7 +45,7 @@ module.exports = function(socket) {
 
   socket.on('getRecommendsData', (cb) => {
     axios
-      .get('http://localhost:3003/recommends/10')
+      .get('http://localhost:3000/recommends/10')
       .then((results) => {
         if (!results) {
           throw 'failed to get recommends data';

@@ -1,6 +1,14 @@
 const
   url = require('url')
-  , mdb = require('../../database/index.js');
+  , mysql = require('mysql');
+
+const mdb = mysql.createPool({
+  host: 'localhost',
+  user:'root',
+  password: process.env.DB_PWD || 'mar1a',
+  database: 'hrr',
+  connectionLimit: 3
+});
 
 module.exports = (req, res) => {
   if (req.method === 'GET') {

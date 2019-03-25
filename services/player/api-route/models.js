@@ -1,9 +1,17 @@
 const 
-  mdb = require('../../database/index.js');
+  mysql = require('mysql');
+
+const mdb = mysql.createPool({
+  host: 'localhost',
+  user:'root',
+  password: process.env.DB_PWD || 'mar1a',
+  database: 'hrr',
+  connectionLimit: 3
+});
 
 // selects the first 30 tracks from db
 let getPlaylist30 = function(callback) {
-  mdb.dbConnection.query(
+  mdb.query(
     'SELECT * FROM playlist ORDER BY id ASC LIMIT 30',
     (err, data) => {
       if (err) {
@@ -19,10 +27,11 @@ let getPlaylist30 = function(callback) {
 
 // selects a specific track from db based on track_id
 let getTrack = function(trackid, callback) {
-  mdb.dbConnection.query(
+  mdb.query(
     'SELECT * FROM playlist WHERE track_id = ? LIMIT 1 ',
     [trackid],
     (err, data) => {
+      console.log(data)
       if (err) {
         console.log(err, 'ERROR WITH MYSQL SELECT QUERY!');
         callback(err, null);
@@ -36,7 +45,7 @@ let getTrack = function(trackid, callback) {
 
 // a function which toggles a song as favorited or unfavorited
 let toggleFavorite = function(trackid, callback) {
-  mdb.dbConnection.query(
+  mdb.query(
     'UPDATE playlist SET favorite = (favorite + 1) % 2 WHERE track_id = ?',
     [trackid],
     (err, data) => {
