@@ -1,9 +1,18 @@
 
 const
   SQL = require('sql-template-strings')
+  , mysql = require('mysql')
   , mdb = require('./index.js')
   , path = require('path')
   , fs = require('fs');
+
+const mydb = mysql.createPool({
+  host: 'localhost',
+  user:'root',
+  password: process.env.DB_PWD || '',
+  database: 'hrr',
+  connectionLimit: 3
+});
 
 fs.readFile(path.join(__dirname, 'featured.json'), 'utf8', (err, data) => {
 
@@ -20,7 +29,7 @@ fs.readFile(path.join(__dirname, 'featured.json'), 'utf8', (err, data) => {
       tracks.push([track.track_id, track.track_title, track.artist_name, track.album_title]);
     }
   
-    mdb.query(`INSERT INTO tracks (track_id, title, artist, album) VALUES ?`, [tracks], (err, res) => {
+    mydb.query(`INSERT INTO tracks (track_id, title, artist, album) VALUES ?`, [tracks], (err, res) => {
       if (err) {
         console.log(err);
       } 

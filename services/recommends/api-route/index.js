@@ -5,7 +5,7 @@ const
 const mdb = mysql.createPool({
   host: 'localhost',
   user:'root',
-  password: process.env.DB_PWD || 'mar1a',
+  password: process.env.DB_PWD || '',
   database: 'hrr',
   connectionLimit: 3
 });
