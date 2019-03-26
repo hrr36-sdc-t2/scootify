@@ -55,7 +55,7 @@ router.delete('/playlist/:id/:track_index', (req, res) => {
 
 router.post('/playlist', (req, res) => {
   mdb
-    .query("UPDATE current_playlist SET songs = JSON_MERGE(songs, '[?]') WHERE _id = 4", [req.body])
+    .query("UPDATE current_playlist SET songs = JSON_MERGE(songs, '[?]') WHERE _id = 3", [req.body])
     .then((results) => {
       if (!results) {
         throw 'failed to add song';
@@ -70,7 +70,7 @@ router.post('/playlist', (req, res) => {
 
 router.get('/test', (req, res) => {
   mdb
-    .query('SELECT songs FROM current_playlist WHERE _id = 4')
+    .query('SELECT songs FROM current_playlist WHERE _id = 3')
     .then((results) => {
       if (!results) {
         throw 'query test fail'
@@ -87,8 +87,9 @@ router.get('/test', (req, res) => {
 
 router.get('/random', (req, res) => {
   mdb
-    .query('SELECT * FROM current_playlist WHERE _id = 4')
+    .query('SELECT * FROM current_playlist WHERE _id = 3')
     .then((results) => {
+      console.log(results[0]);
       if (!results) {
         throw 'query test fail'
       }

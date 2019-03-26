@@ -6,6 +6,16 @@ DROP TABLE IF EXISTS `tracks`;
 DROP TABLE IF EXISTS `playlist`;
 DROP TABLE IF EXISTS `current_playlist`;
 
+CREATE TABLE `current_playlist` (
+  `_id` INT NOT NULL AUTO_INCREMENT, 
+  `owner` VARCHAR(54), 
+  `name` VARCHAR(54), 
+  `image_url` TEXT, 
+  `songs` LONGTEXT, 
+  CHECK (JSON_VALID(`songs`)), 
+  PRIMARY KEY (`_id`)
+);
+
 CREATE TABLE `playlist` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `track_id` INTEGER NOT NULL,
@@ -19,16 +29,6 @@ CREATE TABLE `playlist` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `current_playlist` (
-  `_id` INT NOT NULL AUTO_INCREMENT, 
-  `owner` VARCHAR(54), 
-  `name` VARCHAR(54), 
-  `image_url` TEXT, 
-  `songs` VARCHAR(1024), 
-  CHECK (JSON_VALID(`songs`)), 
-  PRIMARY KEY (`_id`)
-);
-
 CREATE TABLE `tracks` (
   `_id` INTEGER NOT NULL AUTO_INCREMENT,
   `track_id` VARCHAR(254) NOT NULL,
@@ -37,5 +37,3 @@ CREATE TABLE `tracks` (
   `album` VARCHAR(254),
   PRIMARY KEY (`_id`)
 );
-
-

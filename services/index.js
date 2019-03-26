@@ -7,7 +7,7 @@ import Recommends from './recommends/views/components/Recommends.jsx';
 import Player from './player/views/components/Player.jsx';
 
 const App = () => {
-  let socket = socketIO().connect('http://localhost:3000');
+  let socket = socketIO().connect('http://35.235.73.61:3000');
   return (
     <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
       <div style={{ position: 'fixed', width: '10%', minHeight: '100%', backgroundColor: 'black', color: 'white', textAlign: 'center' }}>
@@ -30,3 +30,4 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
+

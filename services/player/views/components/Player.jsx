@@ -49,7 +49,8 @@ class Player extends React.Component {
 
   //if track is requested by a separate component in scootify 
   playSpecificTrack(trackId) {
-    fetch('http://localhost:3000/playlist/track/' + trackId, {
+    fetch('http://35.235.73.61:3000/playlist/track/' + trackId, {
+    // fetch('http://localhost:3000/playlist/track/' + trackId, {
       method: 'GET'
     })
       .then(res => res.json())

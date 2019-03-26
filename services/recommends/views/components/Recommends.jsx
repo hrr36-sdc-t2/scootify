@@ -73,7 +73,8 @@ export default class Recommends extends React.Component {
     let arr = this.state.tracks;
     
     const getSong = () => {
-      return axios.get('http://localhost:3000/recommends/1')
+      return axios.get('http://35.235.73.61:3000/recommends/1')
+      // return axios.get('http://localhost:3000/recommends/1')
         .then(res => {
           for (let obj of arr) {
             if (obj.track_id === res.data[0].track_id) {
