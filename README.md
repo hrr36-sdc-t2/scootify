@@ -5,7 +5,7 @@
 [DEMO](http://35.235.73.61:3000/)
 
 
-![](/public/screen_shot.jpg)
+![](/public/screen_shot.JPG)
 
 
 ### Techstack
